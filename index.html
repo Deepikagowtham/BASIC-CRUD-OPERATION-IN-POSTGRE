@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insert Data</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+  <style>
+    body {
+      margin: 0; /* Remove default body margin */
+      display: flex; /* Use flexbox for layout */
+      justify-content: flex-start; /* Align items to the start (left) of the container */
+      background-image: url("https://i.pinimg.com/564x/76/27/83/762783bf45c1fecc3e37d2ad3b75cb74.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+
+    .img-container {
+      margin-top: 20px;
+      margin-left: 40px;
+    }
+
+    .img-container img {
+      height: auto;
+      border-radius: 25px;
+    }
+
+    .img-container1 {
+      margin-top: 20px;
+      margin-left: 40px;
+    }
+
+    .img-container1 img {
+      border-radius: 25px;
+      margin-top: -700px;
+      margin-left: 50px;
+      margin-bottom: 70px;
+    }
+    
+    .container {
+      margin-top: 0vh;
+      margin-left: 20px; /* Add margin to create space between image and form */
+      display: flex; /* Use flexbox for layout */
+      flex-direction: column; /* Arrange items vertically */
+      align-items: flex-start; /* Align items to the start (left) of the container */
+    }
+    
+    form {
+      margin-top: 40px; /* Add margin to create space between form and generate report */
+      margin-left: 100px;
+      border: 2px solid #ccc; /* Add border to the form */
+      padding: 20px; /* Add padding to create space between the border and form elements */
+      background-color: #f0f0f0; /* Fill color inside the form */
+      border-radius: 25px;
+      width: 500px;
+    }
+
+    .form1 {
+      margin-top: 40px; /* Add margin to create space between form and generate report */
+      margin-left: -520px;
+      margin-bottom: 40px;
+      border: 2px solid #ccc; /* Add border to the form */
+      padding: 20px; /* Add padding to create space between the border and form elements */
+      background-color: #f0f0f0; /* Fill color inside the form */
+      border-radius: 25px;
+      width: 500px;
+    }
+
+    input[type="email"],
+        select {
+            width: 60%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+    
+        input[type="email"]:focus,
+        select:focus {
+            width: 100%;
+            border-radius: 50px;
+            border: 3px solid #ccc;
+            border-color: #1f9fb9;
+            outline: none;
+        }
+
+        input[type="number"],
+        select {
+            width: 60%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+    
+        input[type="number"]:focus,
+        select:focus {
+            width: 100%;
+            border-radius: 50px;
+            border: 3px solid #ccc;
+            border-color:#1f9fb9;
+            outline: none;
+        }
+        input[type="text"],
+        select {
+            width: 60%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            width: 100%;
+            border-radius: 50px;
+            border: 3px solid #ccc;
+            border-color: #1f9fb9;
+            outline: none;
+        }
+
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color:#eb0db7;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #f94dd1;
+        }
+
+        h1 {
+          text-align: center;
+          color: #eb0db7;
+          font-family: 'Brush Script MT', cursive;
+          font-size: 60px;
+        }
+    
+  </style>
+</head>
+<body>
+  <div class="img-container">
+    <img src="https://i.pinimg.com/564x/80/15/0d/80150daf355b741839c4234afb8bc5fa.jpg" alt="img1" height="350px" width="500px">
+  </div>
+  <div class="container">
+  <form action="/login" method="post">
+    <h1>Login</h1>
+    <input type="text" id="name" name="name" placeholder="Name"><br><br>
+    <input type="text" id="rollno" name="rollno" placeholder="Roll no" required><br><br>
+    <input type="email" id="emailId" name="emailId" placeholder="Email Id" required><br><br>
+    <input type="number" id="phno" name="phno" placeholder="Phone no" required><br><br>
+    <input type="submit"><br><br>
+    <button type="submit"><a href="/report">Generate Report</a></button>
+  </form>
+  <form action="/delete" method="post">
+    <h1>Delete</h1>
+    <input type="text" id="deleteRollno" name="rollno" placeholder="Roll no to delete"><br><br>
+    <input type="submit" value="Delete"><br><br>
+  </form>
+  <form class="form1" action="/update" method="post">
+    <h1>Update</h1>
+    <input type="text" id="updateName" name="name" placeholder="Name to update"><br><br>
+    <input type="text" id="updateRollno" name="rollno" placeholder="Roll no to update"><br><br>
+    <input type="email" id="updateEmailId" name="emailId" placeholder="New Email Id"><br><br>
+    <input type="number" id="updatePhno" name="phno" placeholder="New Phone no"><br><br>
+    <input type="submit" value="Update"><br><br>
+  </form>
+  <div class="img-container1">
+    <img src="https://i.pinimg.com/564x/bb/d6/72/bbd67287c3802fa22545db8185d604a1.jpg" alt="img1" height="520px" width="550px">
+  </div>
+</div>
+</body>
+</html>
