@@ -6,181 +6,243 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
   <style>
     body {
-      margin: 0; /* Remove default body margin */
-      display: flex; /* Use flexbox for layout */
-      justify-content: flex-start; /* Align items to the start (left) of the container */
-      background-image: url("https://i.pinimg.com/564x/76/27/83/762783bf45c1fecc3e37d2ad3b75cb74.jpg");
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 100vh;
+      background: -moz-linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #7e53e2 66%, #290fab 100%);
+      background: -webkit-linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#7e53e2 66%,#290fab 100%);
+      background: linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#7e53e2 66%,#290fab 100%);
+      background-size: 400% 400%;
+      -webkit-animation: Gradient 15s ease infinite;
+      -moz-animation: Gradient 15s ease infinite;
+      animation: Gradient 15s ease infinite;
+      /*min-height: calc(100vh - 2rem);*/
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-evenly;
+      overflow: hidden;
+      position: relative; 
     }
 
-    .img-container {
-      margin-top: 20px;
-      margin-left: 40px;
+    body::before, 
+    body::after {
+      content: "";
+      width: 70vmax;
+      height: 70vmax;
+      position: absolute;
+      background: rgba(255, 255, 255, 0.07);
+      left: -20vmin;
+      top: -20vmin;
+      animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+      z-index: 1;
+      will-change: border-radius, transform;
+      transform-origin: 55% 55%;
+      pointer-events: none; 
     }
 
-    .img-container img {
-      height: auto;
-      border-radius: 25px;
+    body::after {
+      width: 70vmin;
+      height: 70vmin;
+      left: auto;
+      right: -10vmin;
+      top: auto;
+      bottom: 0;
+      animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
+      transform-origin: 20% 20%; 
     }
 
-    .img-container1 {
-      margin-top: 20px;
-      margin-left: 40px;
+    @-webkit-keyframes Gradient {
+      0% {
+        background-position: 0 50%
+      }
+      50% {
+        background-position: 100% 50%
+      }
+      100% {
+        background-position: 0 50%
+      }
     }
 
-    .img-container1 img {
-      border-radius: 25px;
-      margin-top: -700px;
-      margin-left: 50px;
-      margin-bottom: 70px;
+    @-moz-keyframes Gradient {
+      0% {
+        background-position: 0 50%
+      }
+      50% {
+        background-position: 100% 50%
+      }
+      100% {
+        background-position: 0 50%
+      }
     }
-    
+
+    @keyframes Gradient {
+      0% {
+        background-position: 0 50%
+      }
+      50% {
+        background-position: 100% 50%
+      }
+      100% {
+        background-position: 0 50%
+      }
+    }
+
+    @keyframes morph {
+      0% {
+        border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+      100% {
+        border-radius: 40% 60%; } 
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(1turn); 
+      } 
+    }
+
     .container {
-      margin-top: 0vh;
-      margin-left: 20px; /* Add margin to create space between image and form */
-      display: flex; /* Use flexbox for layout */
-      flex-direction: column; /* Arrange items vertically */
-      align-items: flex-start; /* Align items to the start (left) of the container */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Center the form vertically */
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInContainer 1.5s ease-in-out;
+      margin-top: 100px; /* Adjust the margin to move the container down */
     }
     
+    
+
+    @keyframes fadeInContainer {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px; /* Reduced margin between form containers */
+      background-color: rgba(255, 255, 255, 0.1); /* Set the background color to transparent */
+    }
+    
+    
+
     form {
-      margin-top: 40px; /* Add margin to create space between form and generate report */
-      margin-left: 100px;
-      border: 2px solid #ccc; /* Add border to the form */
-      padding: 20px; /* Add padding to create space between the border and form elements */
-      background-color: #f0f0f0; /* Fill color inside the form */
-      border-radius: 25px;
-      width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 300px;
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInForm 1.5s ease-in-out;
     }
 
-    .form1 {
-      margin-top: 40px; /* Add margin to create space between form and generate report */
-      margin-left: -520px;
-      margin-bottom: 40px;
-      border: 2px solid #ccc; /* Add border to the form */
-      padding: 20px; /* Add padding to create space between the border and form elements */
-      background-color: #f0f0f0; /* Fill color inside the form */
-      border-radius: 25px;
-      width: 500px;
+    @keyframes fadeInForm {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
+    h1 {
+      color: #26c9f2;
+      font-family: 'Brush Script MT', cursive;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
     input[type="email"],
-        select {
-            width: 60%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ffffff;
-            border-radius: 10px;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-    
-        input[type="email"]:focus,
-        select:focus {
-            width: 100%;
-            border-radius: 50px;
-            border: 3px solid #ccc;
-            border-color: #1f9fb9;
-            outline: none;
-        }
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: border-color 0.3s, transform 0.3s;
+    }
 
-        input[type="number"],
-        select {
-            width: 60%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ffffff;
-            border-radius: 10px;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-    
-        input[type="number"]:focus,
-        select:focus {
-            width: 100%;
-            border-radius: 50px;
-            border: 3px solid #ccc;
-            border-color:#1f9fb9;
-            outline: none;
-        }
-        input[type="text"],
-        select {
-            width: 60%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ffffff;
-            border-radius: 10px;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus {
+      border-color: #0c0feb;
+      outline: none;
+      transform: scale(1.05);
+    }
 
-        input[type="text"]:focus,
-        select:focus {
-            width: 100%;
-            border-radius: 50px;
-            border: 3px solid #ccc;
-            border-color: #1f9fb9;
-            outline: none;
-        }
+    input[type="submit"],
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #26c9f2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.3s;
+      margin-top: 10px;
+    }
 
+    input[type="submit"]:hover,
+    button:hover {
+      background-color: #0c0feb;
+      transform: scale(1.05);
+    }
 
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color:#eb0db7;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
+    .report-button {
+      width: 200px;
+      margin-top: 20px;
+    }
 
-        input[type="submit"]:hover {
-            background-color: #f94dd1;
-        }
-
-        h1 {
-          text-align: center;
-          color: #eb0db7;
-          font-family: 'Brush Script MT', cursive;
-          font-size: 60px;
-        }
-    
+    button a {
+      color: white;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-  <div class="img-container">
-    <img src="https://i.pinimg.com/564x/80/15/0d/80150daf355b741839c4234afb8bc5fa.jpg" alt="img1" height="350px" width="500px">
-  </div>
   <div class="container">
-  <form action="/login" method="post">
-    <h1>Login</h1>
-    <input type="text" id="name" name="name" placeholder="Name"><br><br>
-    <input type="text" id="rollno" name="rollno" placeholder="Roll no" required><br><br>
-    <input type="email" id="emailId" name="emailId" placeholder="Email Id" required><br><br>
-    <input type="number" id="phno" name="phno" placeholder="Phone no" required><br><br>
-    <input type="submit"><br><br>
-    <button type="submit"><a href="/report">Generate Report</a></button>
-  </form>
-  <form action="/delete" method="post">
-    <h1>Delete</h1>
-    <input type="text" id="deleteRollno" name="rollno" placeholder="Roll no to delete"><br><br>
-    <input type="submit" value="Delete"><br><br>
-  </form>
-  <form class="form1" action="/update" method="post">
-    <h1>Update</h1>
-    <input type="text" id="updateName" name="name" placeholder="Name to update"><br><br>
-    <input type="text" id="updateRollno" name="rollno" placeholder="Roll no to update"><br><br>
-    <input type="email" id="updateEmailId" name="emailId" placeholder="New Email Id"><br><br>
-    <input type="number" id="updatePhno" name="phno" placeholder="New Phone no"><br><br>
-    <input type="submit" value="Update"><br><br>
-  </form>
-  <div class="img-container1">
-    <img src="https://i.pinimg.com/564x/bb/d6/72/bbd67287c3802fa22545db8185d604a1.jpg" alt="img1" height="520px" width="550px">
+    <div class="form-row">
+      <div class="form-container">
+        <form action="/login" method="post">
+          <h1>Login</h1>
+          <input type="text" id="name" name="name" placeholder="Name">
+          <input type="text" id="rollno" name="rollno" placeholder="Roll no" required>
+          <input type="email" id="emailID" name="email" placeholder="Email Id" required>
+          <input type="number" id="phno" name="phno" placeholder="Phone no" required>
+          <input type="submit" value="Login">
+        </form>
+      </div>
+      <div class="form-container">
+        <form action="/delete" method="post">
+          <h1>Delete</h1>
+          <input type="text" id="deleteRollno" name="rollno" placeholder="Roll no to delete">
+          <input type="submit" value="Delete">
+        </form>
+      </div>
+      <div class="form-container">
+        <form action="/update" method="post">
+          <h1>Update</h1>
+          <input type="text" id="updateName" name="name" placeholder="Name to update">
+          <input type="text" id="updateRollno" name="rollno" placeholder="Roll no to update">
+          <input type="email" id="updateEmailId" name="email" placeholder="New Email Id">
+          <input type="number" id="updatePhno" name="phno" placeholder="New Phone no">
+          <input type="submit" value="Update">
+        </form>
+      </div>
+    </div>
+    <button class="report-button" type="button"><a href="/report">Generate Report</a></button>
   </div>
-</div>
 </body>
 </html>
